@@ -1,21 +1,32 @@
+from modules.fileManager import loadCities, saveCities
+from modules.ciudades import registrarCiudad
+
 def menu():
     print("\n====== BIENVENIDO ======")
-    print("1. Ver ciudad por código")
-    print("2. Registrar ciudad")
+    print("1. Registrar ciudad")
+    print("2. Ver ciudad por código")
     print("3. Ver todas las ciudades con sus códigos")
     print("4. Salir")
     opc = int(input("Ingrese la opción deseada: "))
     return opc
 
+ciudades = loadCities()
+
 opc = 10
+
 while opc != 0:
     opc = menu()
     if opc == 1:
         print('Ciudad por código')
+        ciudades = registrarCiudad(ciudades)
+        saveCities(ciudades)
+
     elif opc == 2:
         print('Registrar ciudad')
+
     elif opc == 3:
         print('Ver todas las ciudades con sus códigos')
+
     elif opc == 0:
         print('Salir')
         exit()
