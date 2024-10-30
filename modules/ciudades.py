@@ -1,15 +1,21 @@
-def registrarCiudad(ciudades):
-    codigo = str(input('\nIngrese el código de la ciudad a registrar: ')).upper()
-    ciudad = str(input('\nIngrese el nombre de la ciudad: ')).upper()
-    ciudades[codigo] = ciudad
-    
-    print(f'\nCiudad registrada con codigo {codigo} y nombre {ciudad}'.format(codigo=codigo, ciudad=ciudad))
+from modules.validaciones import validacionCodigoRepetido
 
-    return ciudades
+def registrarCiudad(ciudades):
+    codigo = validacionCodigoRepetido(str(input('\nIngrese el codigo de la ciudad a registrar: ')).upper(), ciudades)
+    ciudad = str(input('\nIngrese el nombre de la ciudad: ')).upper()
+    
+    if codigo != -1:
+        ciudades[codigo] = ciudad
+        print(f'\nCiudad registrada con codigo {codigo} y nombre {ciudad}'.format(codigo=codigo, ciudad=ciudad))
+        return ciudades
+    else:
+        print('\nEl codigo ingresado ya existe en la base de datos de ciudades, verifique antes.')
+        return ciudades
 
 def buscarCiudad(ciudades):
-    codigo = str(input('\nIngrese el código de la ciudad a buscar: ')).upper()
+    codigo = str(input('\nIngrese el codigo de la ciudad a buscar: ')).upper()
     ciudad = ciudades.get(codigo)
+
     if ciudad:
         print(f'\nCiudad encontrada con codigo {codigo} y nombre {ciudad}'.format(codigo=codigo, ciudad=ciudad))
     else:
@@ -19,6 +25,7 @@ def buscarCiudad(ciudades):
 
 def verCiudades(ciudades):
     print('\nCiudades registradas: ')
+    
     if ciudades:
         for ciudad in ciudades:
             print(f'codigo: {ciudad} ciudad: {ciudades[ciudad]}')
