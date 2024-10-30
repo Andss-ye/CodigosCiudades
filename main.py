@@ -6,7 +6,7 @@ def menu():
     print("1. Registrar ciudad")
     print("2. Ver ciudad por código")
     print("3. Ver todas las ciudades con sus códigos")
-    print("4. Salir")
+    print("0. Salir")
     opc = int(input("Ingrese la opción deseada: "))
     return opc
 
