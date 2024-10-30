@@ -1,5 +1,5 @@
 from modules.fileManager import loadCities, saveCities
-from modules.ciudades import registrarCiudad, buscarCiudad
+from modules.ciudades import registrarCiudad, buscarCiudad, verCiudades
 
 def menu():
     print("\n====== BIENVENIDO ======")
@@ -27,6 +27,7 @@ while opc != 0:
 
     elif opc == 3:
         print('Ver todas las ciudades con sus códigos')
+        verCiudades(ciudades)
 
     elif opc == 0:
         print('Salir')
