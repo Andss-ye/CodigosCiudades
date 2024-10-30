@@ -14,4 +14,15 @@ def buscarCiudad(ciudades):
         print(f'\nCiudad encontrada con codigo {codigo} y nombre {ciudad}'.format(codigo=codigo, ciudad=ciudad))
     else:
         print(f'\nCiudad no encontrada con codigo {codigo}'.format(codigo=codigo))
+    
     return 
+
+def verCiudades(ciudades):
+    print('\nCiudades registradas: ')
+    if ciudades:
+        for ciudad in ciudades:
+            print(f'codigo: {ciudad} ciudad: {ciudades[ciudad]}')
+    else:
+        print('No hay ciudades registradas')
+    
+    return
