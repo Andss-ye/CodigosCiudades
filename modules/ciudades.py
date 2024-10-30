@@ -6,3 +6,12 @@ def registrarCiudad(ciudades):
     print(f'\nCiudad registrada con codigo {codigo} y nombre {ciudad}'.format(codigo=codigo, ciudad=ciudad))
 
     return ciudades
+
+def buscarCiudad(ciudades):
+    codigo = str(input('\nIngrese el código de la ciudad a buscar: ')).upper()
+    ciudad = ciudades.get(codigo)
+    if ciudad:
+        print(f'\nCiudad encontrada con codigo {codigo} y nombre {ciudad}'.format(codigo=codigo, ciudad=ciudad))
+    else:
+        print(f'\nCiudad no encontrada con codigo {codigo}'.format(codigo=codigo))
+    return 
