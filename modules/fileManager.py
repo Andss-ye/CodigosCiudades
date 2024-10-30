@@ -11,4 +11,4 @@ def loadCities():
 
 def saveCities(cities):
     with open('bd/cities.json', 'w') as file:
-        json.dump(cities, file)
+        json.dump(cities, file, indent=4)
